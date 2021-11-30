@@ -1,0 +1,7 @@
+name: unchecked-money
+dependencies:
+  - python=3.9
+  - pip=21.2.4
+  - pip:
+      - pytest==6.2.5
+
