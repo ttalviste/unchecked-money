@@ -4,11 +4,11 @@ from app.src.datastore.datastore import EventStore
 
 class InMemoryEventStore(EventStore):
     def __init__(self):
-        self.events: list = []
+        self.events: list[DomainEvent] = []
 
     def publish(self, obj: DomainEvent) -> None:
         assert isinstance(obj, (DomainEvent,))
         self.events.append(obj)
 
-    def state(self) -> int:
-        return len(self.events)
+    def state(self) -> list[DomainEvent]:
+        return self.events

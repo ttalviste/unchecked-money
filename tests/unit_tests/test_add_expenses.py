@@ -24,4 +24,4 @@ def test_handle(mocker: MockerFixture) -> None:
         date=add_test_expense.date
     )
     assert add_expense_handler(add_test_expense, event_store) == expense_added
-    assert event_store.state() == 1
+    assert event_store.state() == [expense_added]

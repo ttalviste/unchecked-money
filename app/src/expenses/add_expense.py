@@ -26,7 +26,7 @@ class ExpenseAdded(DomainEvent):
         return EXPENSE_ADDED
 
 
-def handle(add_expense: AddExpense, event_store: EventStore):
+def handle(add_expense: AddExpense, event_store: EventStore) -> DomainEvent:
     print(repr(add_expense))
     expense_added = ExpenseAdded(
         id=utils.generate_id(),

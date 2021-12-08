@@ -5,4 +5,6 @@ dependencies:
   - pip:
       - pytest==6.2.5
       - pytest-mock==3.6.1
+      - pytest-mypy==0.8.1
+      - mypy==0.910
 

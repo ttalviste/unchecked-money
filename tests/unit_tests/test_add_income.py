@@ -32,4 +32,4 @@ def test_handle(mocker: MockerFixture) -> None:
     )
 
     assert add_income_handler(add_test_income, event_store) == income_added
-    assert event_store.state() == 1
+    assert event_store.state() == [income_added]

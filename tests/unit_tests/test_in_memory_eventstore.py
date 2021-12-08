@@ -27,4 +27,4 @@ def test_state():
         id=utils.generate_id(), currency='EUR', category='Rent', amount=420.00, date=datetime.date.today())
     datastore.publish(expense_added)
 
-    assert datastore.state() == 1
+    assert datastore.state() == [expense_added]

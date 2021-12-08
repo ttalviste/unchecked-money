@@ -26,7 +26,7 @@ class IncomeAdded(DomainEvent):
         return INCOME_ADDED
 
 
-def handle(add_expense: AddIncome, event_store: EventStore):
+def handle(add_expense: AddIncome, event_store: EventStore) -> DomainEvent:
     print(repr(add_expense))
     expense_added = IncomeAdded(
         id=utils.generate_id(),
