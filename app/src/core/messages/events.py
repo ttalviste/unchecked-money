@@ -9,6 +9,7 @@ INCOME_REMOVED = 'INCOME_REMOVED'
 
 @dataclasses.dataclass(frozen=True)
 class DomainEvent(ABC):
+    id: str
 
     def get_type(self) -> str:
         ...

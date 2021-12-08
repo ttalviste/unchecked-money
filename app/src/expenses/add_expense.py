@@ -1,6 +1,7 @@
 import dataclasses
 import datetime
 
+from app.src.core import utils
 from app.src.core.messages.commands import DomainCommand
 from app.src.core.messages.events import DomainEvent, EXPENSE_ADDED
 from app.src.datastore.datastore import EventStore
@@ -20,7 +21,6 @@ class ExpenseAdded(DomainEvent):
     amount: float
     currency: str
     date: datetime.date
-    id: str = 'bla'
 
     def get_type(self) -> str:
         return EXPENSE_ADDED
@@ -29,6 +29,7 @@ class ExpenseAdded(DomainEvent):
 def handle(add_expense: AddExpense, event_store: EventStore):
     print(repr(add_expense))
     expense_added = ExpenseAdded(
+        id=utils.generate_id(),
         amount=add_expense.amount,
         category=add_expense.category,
         currency=add_expense.currency,
